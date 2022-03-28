@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # TF models
-models
+models/*
 !models/download_model.sh
