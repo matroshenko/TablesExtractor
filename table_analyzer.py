@@ -1,4 +1,5 @@
 import tensorflow as tf
+tf.load_op_library('models/splerge_model_v1/ops/ops.so')
 
 from grid_structure import GridStructure
 from rect import Rect
