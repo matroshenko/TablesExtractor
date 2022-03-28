@@ -1,3 +1,6 @@
+from interval import Interval
+
+
 class Rect(object):
   def __init__(self, left, top, right, bottom):
     assert left <= right and top <= bottom
@@ -42,6 +45,12 @@ class Rect(object):
     right = min(self.right, other.right)
     bottom = min(self.bottom, other.bottom)
     return max(0, right - left) * max(0, bottom - top)
+
+  def get_horz_interval(self):
+    return Interval(self.left, self.right)
+
+  def get_vert_interval(self):
+    return Interval(self.top, self.bottom)
 
   def __eq__(self, other):
     return self.as_tuple() == other.as_tuple()
