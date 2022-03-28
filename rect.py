@@ -36,6 +36,13 @@ class Rect(object):
   def overlaps_vertically(self, other):
     return self.top < other.bottom and other.top < self.bottom
 
+  def get_overlap_area(self, other):
+    left = max(self.left, other.left)
+    top = max(self.top, other.top)
+    right = min(self.right, other.right)
+    bottom = min(self.bottom, other.bottom)
+    return max(0, right - left) * max(0, bottom - top)
+
   def __eq__(self, other):
     return self.as_tuple() == other.as_tuple()
 
