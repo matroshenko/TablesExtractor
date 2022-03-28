@@ -9,7 +9,7 @@ from rect import Rect
 class TablesFinder(object):
     def __init__(self, page_objects):
         self._page_objects = page_objects
-        self._detection_model = tf.saved_model.load('models/tables_detector_v2/')['prediction_pipeline']
+        self._detection_model = tf.saved_model.load('models/tables_detector_v2/').signatures['prediction_pipeline']
 
     def find(self):
         result = self._find_rects_on_page_image()
