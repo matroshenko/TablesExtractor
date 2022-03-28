@@ -130,3 +130,4 @@ dmypy.json
 
 # TF models
 models
+!models/download_model.sh
