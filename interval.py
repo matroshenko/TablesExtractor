@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Interval(object):
     def __init__(self, start, end):
         assert start < end
@@ -38,4 +41,22 @@ def get_intervals_of_ones(mask):
     if is_inside_interval:
         assert current_inteval_start is not None
         result.append(Interval(current_inteval_start, len(mask)))
+    return result
+
+
+def sort_and_merge_intervals(intervals):
+    if not intervals:
+        return []
+
+    sorted_intervals = sorted(intervals, key=lambda interval: interval.start)
+    intervals_to_merge = deque(sorted_intervals)
+
+    result = [intervals_to_merge.popleft()]
+    while intervals_to_merge:
+        next_interval = intervals_to_merge.popleft()
+        if next_interval.start < result[-1].end:
+            result[-1].end = max(result[-1].end, next_interval.end)
+        else:
+            result.append(next_interval)
+
     return result
