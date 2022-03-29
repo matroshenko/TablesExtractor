@@ -45,3 +45,7 @@ class TablesExtractorTestCase(TestCase):
         self.assertEqual(cells[13].text, '4.03')
         self.assertEqual(cells[14].text, '3.82')
         self.assertEqual(cells[15].text, '5.90')
+
+
+if __name__ == '__main__':
+    main()
