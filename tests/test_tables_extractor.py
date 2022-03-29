@@ -8,7 +8,7 @@ from tables_extractor import TablesExtractor
 class TablesExtractorTestCase(TestCase):
     def test_single_table(self):
         page_objects_creator = PageObjectsCreator()
-        page_objects_list = page_objects_creator.create('data/page_28.pdf')
+        page_objects_list = page_objects_creator.create('tests/data/page_28.pdf')
         
         self.assertEqual(len(page_objects_list), 1)
         page_objects = page_objects_list[0]
