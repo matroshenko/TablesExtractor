@@ -23,7 +23,7 @@ class TablesFinder(object):
 
         scale = math.sqrt(resized_width / original_width * resized_height / original_height)
         resized_page_image_array = tf.keras.utils.img_to_array(resized_page_image, dtype='float32')
-        outputs = self._detection_model(resized_page_image_array)
+        outputs = self._detection_model(tf.constant(resized_page_image_array))
 
         boxes = outputs['output/boxes:0']
         scores = outputs['output/scores:0']
