@@ -15,13 +15,13 @@ class PageObjectsCreator(object):
             result.append(
                 PageObjects(self.get_page_image(page), self.get_words(page))
             )
-            
+
         return result
 
     def get_page_image(self, page):
         pixmap = page.get_pixmap(dpi=72)
         size = (pixmap.width, pixmap.height)
-        return PIL.Image.frombuffer('RGB', size, pixmap.samples_mv)
+        return PIL.Image.frombuffer('RGB', size, pixmap.samples)
 
     def get_words(self, page):
         text_page = page.get_textpage()
