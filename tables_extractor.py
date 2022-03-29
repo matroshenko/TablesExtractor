@@ -4,15 +4,15 @@ from cell_text_recognizer import CellTextRecognizer
 
 
 class Cell(object):
-    def __init__(self, grid_rect, recognized_text):
-        self._grid_rect = grid_rect
-        self._recognized_text = recognized_text
+    def __init__(self, grid_rect, text):
+        self.grid_rect = grid_rect
+        self.text = text
 
 
 class Table(object):
     def __init__(self, grid_structure, cells):
-        self._grid_structure = grid_structure
-        self._cells = cells
+        self.grid_structure = grid_structure
+        self.cells = cells
 
 
 class TablesExtractor(object):
