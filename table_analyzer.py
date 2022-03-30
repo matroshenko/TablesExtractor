@@ -31,3 +31,4 @@ class TableAnalyzer(object):
         for cell_grid_rect in cells_grid_rects_array:
             left, top, right, bottom = cell_grid_rect
             result.append(Rect(left, top, right, bottom))
+        return result
