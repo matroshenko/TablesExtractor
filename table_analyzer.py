@@ -14,7 +14,7 @@ class TableAnalyzer(object):
     def analyze(self):
         table_image = self._page_objects.page_image.crop(self._table_rect.as_tuple())
         table_image_array = tf.keras.utils.img_to_array(table_image, dtype='int32')
-        outputs = self._splerge_model(table_image_array)
+        outputs = self._splerge_model(tf.constant(table_image_array))
         grid_structure = self._create_grid_structure(outputs['h_positions'].numpy(), outputs['v_positions'].numpy())
         cells_grid_rects = self._create_cells_grid_rects(outputs['cells_grid_rects'].numpy())
         return grid_structure, cells_grid_rects
