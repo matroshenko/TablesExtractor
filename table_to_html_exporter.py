@@ -2,11 +2,15 @@ import xml.etree.ElementTree as ET
 
 
 class TableToHTMLExporter(object):
-    def __init__(self, table_cells):
+    def __init__(self, table_cells, css_class=None):
         self._table_cells = table_cells
+        self._css_class = css_class
 
     def export(self):
         table_element = ET.Element('table')
+        if self._css_class is not None:
+            table_element.set('class', self._css_class)
+            
         row_element = ET.SubElement(table_element, 'tr')
 
         cells = self._table_cells
