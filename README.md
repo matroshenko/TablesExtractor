@@ -16,5 +16,5 @@ unzip splerge_model_v1.zip -d splerge_model_v1
 
 # Usage
 
-To export tables from PDF document to HTML format use script `table_to_html_exporter.py`.
+To export tables from PDF document to HTML format use script `export_tables_to_html.py`.
 Run with `--help` to view usage info.
