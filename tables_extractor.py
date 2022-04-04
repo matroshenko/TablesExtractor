@@ -30,7 +30,7 @@ class TablesExtractor(object):
             cells = []
             for cell_grid_rect in cells_grid_rects:
                 cell_rect = grid_structure.get_cell_rect(cell_grid_rect)
-                cell_text_recognizer = CellTextRecognizer(self._page_objects, cell_rect)
+                cell_text_recognizer = CellTextRecognizer(self._page_objects, cell_rect, True)
                 text = cell_text_recognizer.recognize()
                 cells.append(Cell(cell_grid_rect, text))
 

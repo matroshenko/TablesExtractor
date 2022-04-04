@@ -16,12 +16,16 @@ class Line(object):
 
 
 class CellTextRecognizer(object):
-    def __init__(self, page_objects, cell_rect):
+    def __init__(self, page_objects, cell_rect, should_trust_text_order):
         self._page_objects = page_objects
         self._cell_rect = cell_rect
+        self._should_trust_text_order = should_trust_text_order
 
     def recognize(self):
         words = self.get_overlapping_words()
+        if self._should_trust_text_order:
+            return ' '.join(word.text for word in words)
+        
         lines = self.split_words_by_lines(words)
         return '\n'.join(line.get_text() for line in lines)
 
