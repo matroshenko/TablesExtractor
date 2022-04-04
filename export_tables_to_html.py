@@ -13,11 +13,16 @@ def main(args):
     page_objects_list = PageObjectsCreator().create(args.src_file_path)
 
     root = ET.Element('html')
+    #ET.SubElement(root, 'link', {'rel': 'stylesheet', 'href': 'https://www.w3schools.com/w3css/4/w3.css'})
 
     for page_objects in page_objects_list:
         tables = TablesExtractor(page_objects).extract()
-        for table in tables:
-            table_element = TableToHTMLExporter(table.cells).export()
+        for idx, table in enumerate(tables, start=1):
+            table_exporter = TableToHTMLExporter(table.cells, 'w3-table-all')
+            table_element = table_exporter.export()
+            title_element = ET.SubElement(root, 'h2')
+            title_element.text = 'Table {}'.format(idx)
+            
             root.append(table_element)
 
     ET.ElementTree(root).write(args.dst_file_path, encoding='utf-8', method='html')
