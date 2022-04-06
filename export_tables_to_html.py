@@ -7,9 +7,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 
-from lib.page_objects_creator import PageObjectsCreator
-from lib.tables_extractor import TablesExtractor
-from lib.table_to_html_exporter import TableToHTMLExporter
+from tables_extractor.page_objects_creator import PageObjectsCreator
+from tables_extractor.tables_extractor import TablesExtractor
+from tables_extractor.table_to_html_exporter import TableToHTMLExporter
 
 
 def main(args):

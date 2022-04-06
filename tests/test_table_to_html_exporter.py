@@ -2,9 +2,9 @@ from unittest import TestCase, main
 import xml.etree.ElementTree as ET
 
 import context
-from lib.rect import Rect
-from lib.tables_extractor import Cell
-from lib.table_to_html_exporter import TableToHTMLExporter
+from tables_extractor.rect import Rect
+from tables_extractor.tables_extractor import Cell
+from tables_extractor.table_to_html_exporter import TableToHTMLExporter
 
 
 class TablesExtractorTestCase(TestCase):
