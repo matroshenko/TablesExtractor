@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 
 import context
-from interval import Interval, sort_and_merge_intervals
+from lib.interval import Interval, sort_and_merge_intervals
 
 
 class IntervalTestCase(TestCase):

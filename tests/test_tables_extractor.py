@@ -5,8 +5,8 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
 import context
-from page_objects_creator import PageObjectsCreator
-from tables_extractor import TablesExtractor
+from lib.page_objects_creator import PageObjectsCreator
+from lib.tables_extractor import TablesExtractor
 
 
 class TablesExtractorTestCase(TestCase):
