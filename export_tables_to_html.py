@@ -13,7 +13,7 @@ from table_to_html_exporter import TableToHTMLExporter
 
 
 def main(args):
-    page_objects_list = PageObjectsCreator().create(args.src_file_path)
+    page_objects_list = PageObjectsCreator().create_from_path(args.src_file_path)
 
     root = ET.Element('html')
 
