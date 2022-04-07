@@ -55,4 +55,4 @@ class TablesExtractorTestCase(TestCase):
 
 
 if __name__ == '__main__':
-    main()
+    main(module='test_tables_extractor')
