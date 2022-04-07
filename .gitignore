@@ -134,3 +134,6 @@ tables_extractor/models/*
 
 # VSCode stuff
 .vscode
+
+# Profiler stuff
+profile.out
