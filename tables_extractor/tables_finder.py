@@ -5,14 +5,12 @@ import tensorflow as tf
 import PIL
 
 from tables_extractor.rect import Rect
+from tables_extractor import models_manager
 
 
 class TablesFinder(object):
     def __init__(self, page_objects):
         self._page_objects = page_objects
-        models_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'models'))
-        model_root_dir = os.path.join(models_root_dir, 'tables_detector_v3')
-        self._detection_model = tf.saved_model.load(model_root_dir).signatures['prediction_pipeline']
 
     def find(self):
         result = self._find_rects_on_page_image()
@@ -26,7 +24,7 @@ class TablesFinder(object):
 
         scale = math.sqrt(resized_width / original_width * resized_height / original_height)
         resized_page_image_array = tf.keras.utils.img_to_array(resized_page_image, dtype='float32')
-        outputs = self._detection_model(tf.constant(resized_page_image_array))
+        outputs = models_manager.detection_model(tf.constant(resized_page_image_array))
 
         boxes = outputs['output/boxes:0']
         scores = outputs['output/scores:0']

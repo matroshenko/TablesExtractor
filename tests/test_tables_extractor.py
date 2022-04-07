@@ -1,12 +1,5 @@
 from unittest import TestCase, main
 
-import os
-# Turn off tensorflow warnings.
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-
-import tensorflow as tf
-tf.get_logger().setLevel('ERROR')
-
 import context
 from tables_extractor.page_objects_creator import PageObjectsCreator
 from tables_extractor.tables_extractor import TablesExtractor
