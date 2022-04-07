@@ -7,7 +7,7 @@ Tool for extracting tables from PDF documents.
 1. Install python packages: `pip install -r requirements.txt`.
 2. Prepare tensorflow models:
 ```bash
-cd models
+cd tables_extractor/models
 bash download_model.sh matroshenko TablesDetector v3.0.0 tables_detector_v3
 bash download_model.sh matroshenko TableAnalyzer v2.0.0 splerge_model_v1
 unzip tables_detector_v3.zip -d tables_detector_v3
