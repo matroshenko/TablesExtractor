@@ -1,4 +1,5 @@
 import math
+import os
 
 import tensorflow as tf
 import PIL
@@ -9,7 +10,9 @@ from tables_extractor.rect import Rect
 class TablesFinder(object):
     def __init__(self, page_objects):
         self._page_objects = page_objects
-        self._detection_model = tf.saved_model.load('models/tables_detector_v3/').signatures['prediction_pipeline']
+        models_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models'))
+        model_root_dir = os.path.join(models_root_dir, 'tables_detector_v3')
+        self._detection_model = tf.saved_model.load(model_root_dir).signatures['prediction_pipeline']
 
     def find(self):
         result = self._find_rects_on_page_image()
