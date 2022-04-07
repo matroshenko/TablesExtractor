@@ -10,7 +10,7 @@ from tables_extractor.rect import Rect
 class TablesFinder(object):
     def __init__(self, page_objects):
         self._page_objects = page_objects
-        models_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models'))
+        models_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'models'))
         model_root_dir = os.path.join(models_root_dir, 'tables_detector_v3')
         self._detection_model = tf.saved_model.load(model_root_dir).signatures['prediction_pipeline']
 

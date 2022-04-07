@@ -10,7 +10,7 @@ class TableAnalyzer(object):
     def __init__(self, page_objects, table_rect):
         self._page_objects = page_objects
         self._table_rect = table_rect
-        models_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models'))
+        models_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'models'))
         model_root_dir = os.path.join(models_root_dir, 'splerge_model_v1')
         tf.load_op_library(os.path.join(model_root_dir, 'ops', 'ops.so'))
         self._splerge_model = tf.saved_model.load(model_root_dir).signatures['serving_default']

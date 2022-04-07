@@ -129,8 +129,8 @@ dmypy.json
 .pyre/
 
 # TF models
-models/*
-!models/download_model.sh
+tables_extractor/models/*
+!tables_extractor/models/download_model.sh
 
 # VSCode stuff
 .vscode
